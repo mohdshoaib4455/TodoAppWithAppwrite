@@ -34,6 +34,7 @@ export const AuthProvider = ({ children }) => {
       console.log("Logged-in user:", userData);
       setuser(userData);
     } catch (error) {
+      alert(error.message);
       console.error("Login Error:", error.message);
     }
   };
@@ -43,6 +44,7 @@ export const AuthProvider = ({ children }) => {
       await account.deleteSession("current");
       setuser(null);
     } catch (error) {
+      alert(error.message);
       console.error("Logout Error:", error.message);
     }
   };
@@ -50,8 +52,8 @@ export const AuthProvider = ({ children }) => {
   const SignUp = async (name, email, password) => {
     try {
       await account.create(ID.unique(), email, password, name);
-  
     } catch (error) {
+      alert(error.message);
       console.error("Sign Up Error:", error.message);
     }
   };
@@ -59,19 +61,20 @@ export const AuthProvider = ({ children }) => {
 
   // Datatbase code start here
 
- const AddTodo = async (title) => {
-   try {
-     const response = await database.createDocument(
-       import.meta.env.VITE_APPWRITE_DATABASEID,
-       import.meta.env.VITE_APPWRITE_COLLECTIONID,
-       ID.unique(),
-       { title: title }
-     );
-     return response;
-   } catch (error) {
-     console.log("Error from addtodo method:", error);
-   }
- };
+  const AddTodo = async (title) => {
+    try {
+      const response = await database.createDocument(
+        import.meta.env.VITE_APPWRITE_DATABASEID,
+        import.meta.env.VITE_APPWRITE_COLLECTIONID,
+        ID.unique(),
+        { title: title }
+      );
+      return response;
+    } catch (error) {
+      alert(error.message);
+      console.log("Error from addtodo method:", error);
+    }
+  };
   const getTodos = async () => {
     try {
       const response = await database.listDocuments(
@@ -94,6 +97,7 @@ export const AuthProvider = ({ children }) => {
       );
       console.log("Todo deleted:", todoId);
     } catch (error) {
+      alert(error.message);
       console.log("Error from deleteTodo method:", error);
     }
   };
