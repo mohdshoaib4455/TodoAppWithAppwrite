@@ -29,7 +29,7 @@ const Signin = () => {
       ) : (
         <form
           onSubmit={submitHandle}
-          className="w-sm  border-2 shadow-lg rounded-md px-2 md:w-md sm:p-10 lg:w-lg xl:w-x"
+          className="w-sm  border-2 shadow-lg rounded-md px-2 py-8 mx-2  sm:m-0 md:w-md sm:p-10 lg:w-lg xl:w-x"
         >
           <div className="relative z-0 w-full mb-5 group">
             <input
