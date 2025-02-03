@@ -31,7 +31,7 @@ const Home = () => {
     <>
       <div className="w-full h-full">
         <div className="flex flex-col items-center  h-auto py-9">
-          <h1 className="text-xl uppercase md:text-3xl lg:text-4xl font-bold text-center text-white">
+          <h1 className="text-xl uppercase md:text-3xl lg:text-4xl font-bold text-center text-black">
             WELCOME, {user && user.name}
           </h1>
         </div>
